@@ -39,13 +39,13 @@ const cieoGradeCodeSchema = z.object({
   notes: z.string().optional(),
 });
 
-type TopographyRaw = { c: string; d: string };
-type MorphologyRaw = { c: string; d: string };
-type BehaviorRaw = { v: string; d: string; lab: boolean };
-type GradeRaw = { v: string; d: string };
+type TopographyCode = z.infer<typeof cieoTopographyCodeSchema>;
+type MorphologyCode = z.infer<typeof cieoMorphologyCodeSchema>;
+type BehaviorCode = z.infer<typeof cieoBehaviorCodeSchema>;
+type GradeCode = z.infer<typeof cieoGradeCodeSchema>;
 
-function extractTopography(html: string): any[] {
-  const result: any[] = [];
+function extractTopography(html: string): TopographyCode[] {
+  const result: TopographyCode[] = [];
   
   // Find SISTEMAS block start
   const sistemasStart = html.indexOf("const SISTEMAS = ");
@@ -113,8 +113,8 @@ function extractTopography(html: string): any[] {
   return result;
 }
 
-function extractMorphology(html: string): any[] {
-  const result: any[] = [];
+function extractMorphology(html: string): MorphologyCode[] {
+  const result: MorphologyCode[] = [];
   
   // Extract GRUPOS_HIST block
   const gruposMatch = html.match(/const GRUPOS_HIST = \{([\s\S]*?)\n\};/);
@@ -168,8 +168,8 @@ function extractMorphology(html: string): any[] {
   return result;
 }
 
-function extractBehavior(html: string): any[] {
-  const result: any[] = [];
+function extractBehavior(html: string): BehaviorCode[] {
+  const result: BehaviorCode[] = [];
   
   // Extract COMP_TODOS block
   const compMatch = html.match(/const COMP_TODOS = \[([\s\S]*?)\];/);
@@ -193,8 +193,8 @@ function extractBehavior(html: string): any[] {
   return result;
 }
 
-function extractGrade(html: string): any[] {
-  const result: any[] = [];
+function extractGrade(html: string): GradeCode[] {
+  const result: GradeCode[] = [];
   
   // Extract GRADO_DIFERENCIACION block
   const gradoMatch = html.match(/const GRADO_DIFERENCIACION = \[([\s\S]*?)\];/);
@@ -257,35 +257,42 @@ function main() {
   
   // Validate each array
   console.log("✅ Validating schemas...");
+  const getErrorMessage = (error: unknown): string => {
+    if (error instanceof Error) {
+      return error.message;
+    }
+    return String(error);
+  };
+
   try {
     topography.forEach((t) => cieoTopographyCodeSchema.parse(t));
     console.log("   ✓ Topography schema valid");
-  } catch (e: any) {
-    console.error("   ✗ Topography schema error:", e.message);
+  } catch (e: unknown) {
+    console.error("   ✗ Topography schema error:", getErrorMessage(e));
     process.exit(1);
   }
   
   try {
     morphology.forEach((m) => cieoMorphologyCodeSchema.parse(m));
     console.log("   ✓ Morphology schema valid");
-  } catch (e: any) {
-    console.error("   ✗ Morphology schema error:", e.message);
+  } catch (e: unknown) {
+    console.error("   ✗ Morphology schema error:", getErrorMessage(e));
     process.exit(1);
   }
   
   try {
     behavior.forEach((b) => cieoBehaviorCodeSchema.parse(b));
     console.log("   ✓ Behavior schema valid");
-  } catch (e: any) {
-    console.error("   ✗ Behavior schema error:", e.message);
+  } catch (e: unknown) {
+    console.error("   ✗ Behavior schema error:", getErrorMessage(e));
     process.exit(1);
   }
   
   try {
     grade.forEach((g) => cieoGradeCodeSchema.parse(g));
     console.log("   ✓ Grade schema valid");
-  } catch (e: any) {
-    console.error("   ✗ Grade schema error:", e.message);
+  } catch (e: unknown) {
+    console.error("   ✗ Grade schema error:", getErrorMessage(e));
     process.exit(1);
   }
   

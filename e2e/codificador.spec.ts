@@ -18,7 +18,6 @@ test.describe('Codificador CIE-O', () => {
   test('la navegación por pestañas debe funcionar', async ({ page }) => {
     // Identifica las pestañas (tabs)
     const tabEntidadRelacion = page.getByRole('tab', { name: 'Entidad-Relación' });
-    const tabReglas = page.getByRole('tab', { name: 'Reglas A-K' });
     const tabCodificador = page.getByRole('tab', { name: 'Codificador' });
 
     // Clic en Entidad-Relación y verificar que se activa

@@ -6,7 +6,7 @@ import { useWizardStore } from "@/store/use-wizard-store";
 export function ResultPanel() {
   const {
     topo, topoDesc, hist, histDesc,
-    comp, compDesc, grado, gradoDesc,
+    comp, grado,
     completeDesc, resetAll, tipoGrado,
   } = useWizardStore();
 
@@ -30,8 +30,6 @@ export function ResultPanel() {
     "8": "NK",
     "9": "No det.",
   };
-
-  const hasAll = topo && hist && comp && grado;
 
   return (
     <div

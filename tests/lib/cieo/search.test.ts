@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import type { CieoTopographyCode, CieoMorphologyCode, CieoSearchResult } from "@/types/cieo";
+import type { CieoTopographyCode, CieoMorphologyCode } from "@/types/cieo";
 import {
   searchCieoTopography,
   searchCieoMorphology,

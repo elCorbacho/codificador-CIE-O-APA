@@ -146,7 +146,7 @@ const SISTEMAS: Record<string, { alerta?: string; topos: Array<{ c: string; d: s
 const sistemaKeys = Object.keys(SISTEMAS);
 
 export function TopographySelector() {
-  const { ctx, topo, topoDesc, setTopo, setStep } = useWizardStore();
+  const { ctx, setTopo, setStep } = useWizardStore();
   const [sistema, setSistema] = useState("");
   const [alerta, setAlerta] = useState("");
 

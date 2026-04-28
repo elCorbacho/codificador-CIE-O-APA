@@ -64,11 +64,11 @@ body {
 /* Links */
 a {
   color: var(--color-legal-link);
-  text-decoration-color: color-mix(in_oklab, var(--color-legal-link), transparent 55%);
+  text-decoration-color: color-mix(in oklab, var(--color-legal-link), transparent 55%);
   text-underline-offset: 3px;
 }
 a:hover {
-  text-decoration-color: color-mix(in_oklab, var(--color-legal-link), transparent 25%);
+  text-decoration-color: color-mix(in oklab, var(--color-legal-link), transparent 25%);
 }
 
 /* Utility classes for project colors */

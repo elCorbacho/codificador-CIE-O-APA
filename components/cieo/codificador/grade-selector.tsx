@@ -32,7 +32,6 @@ export function GradeSelector() {
       ? GRADO_LINAJE
       : GRADO_DIFERENCIACION;
 
-  const title = esHema ? "Inmunofenotipo / Linaje celular" : "Grado histológico / Diferenciación";
   const hint = esHema
     ? "§3.13.3 Tabla 22: los dígitos de linaje 5–8 prevalecen sobre diferenciación 1–4 (Regla G)."
     : "Regla G: si el informe indica dos grados, usar el mayor. Si no se especifica grado → 9.";

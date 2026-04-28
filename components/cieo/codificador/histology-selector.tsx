@@ -103,7 +103,7 @@ const GRUPOS_HEMA = ["Leucemias y síndromes mieloproliferativos", "Linfomas", "
 const grupoKeys = Object.keys(GRUPOS_HIST);
 
 export function HistologySelector() {
-  const { topo, setHist, setStep, tipoGrado, setGrado } = useWizardStore();
+  const { topo, setHist, setStep, setGrado } = useWizardStore();
   const [grupo, setGrupo] = useState("");
 
   const isDisabled = !topo;

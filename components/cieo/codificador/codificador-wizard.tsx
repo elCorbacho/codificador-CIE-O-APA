@@ -60,7 +60,7 @@ function WizardStep({ number, title, children, isActive, isDone }: StepProps) {
 }
 
 export function CodificadorWizard() {
-  const { step, topo, hist, comp, tipoGrado, setStep } = useWizardStore();
+  const { step, topo, hist, comp, tipoGrado } = useWizardStore();
 
   const isStep0Active = step === 0;
   const isStep1Active = step === 1;

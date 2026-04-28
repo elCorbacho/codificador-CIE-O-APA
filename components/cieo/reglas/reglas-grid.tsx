@@ -1,5 +1,3 @@
-import type { ReactNode } from "react";
-
 interface RuleProps {
   letter: string;
   badgeColor: string;
@@ -188,7 +186,7 @@ export function ReglasGrid() {
                 Reglas de topografía
               </h3>
             </div>
-            {topoRules.map((rule, i) => (
+            {topoRules.map((rule) => (
               <RuleItem key={rule.letter} {...rule} />
             ))}
           </div>
@@ -209,7 +207,7 @@ export function ReglasGrid() {
                 Reglas de morfología
               </h3>
             </div>
-            {morfoRules.map((rule, i) => (
+            {morfoRules.map((rule) => (
               <RuleItem key={rule.letter} {...rule} />
             ))}
           </div>
