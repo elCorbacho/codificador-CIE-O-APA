@@ -16,8 +16,8 @@ const badgeVariants = cva(
           "bg-[var(--color-error)] text-white focus-visible:ring-[color-mix(in_oklab,var(--color-error),transparent_70%)] [a&]:hover:opacity-90",
         outline:
           "border border-hairline text-ink bg-transparent [a&]:hover:bg-surface-soft",
-        ghost: "[a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 [a&]:hover:underline",
+        ghost: "bg-transparent text-ink [a&]:hover:bg-surface-soft [a&]:hover:text-ink",
+        link: "text-[var(--color-legal-link)] underline-offset-4 [a&]:hover:underline",
       },
     },
     defaultVariants: {
