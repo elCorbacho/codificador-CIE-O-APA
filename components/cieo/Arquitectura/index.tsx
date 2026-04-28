@@ -38,11 +38,11 @@ export function ArquitecturaSection() {
           topografía y un código de morfología. Juntos suman 10 caracteres.
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-          <div className="lg:col-span-2">
+        <div className="flex flex-col gap-5">
+          <div>
             <CodeBox />
           </div>
-          <div className="lg:col-span-1">
+          <div>
             <InfoCards />
           </div>
         </div>
