@@ -1,22 +1,7 @@
 export function CodeBox() {
   return (
-    <div
-      className="rounded-[14px] p-8 text-white"
-      style={{
-        background: "var(--color-ink)",
-        fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-      }}
-    >
-      <p
-        style={{
-          fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-          fontSize: "11px",
-          letterSpacing: ".12em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,.4)",
-          marginBottom: "1.5rem",
-        }}
-      >
+    <div className="code-surface rounded-[14px] p-8 text-white">
+      <p className="code-eyebrow mb-6">
         Estructura del código completo
       </p>
 
@@ -27,9 +12,7 @@ export function CodeBox() {
           style={{ background: "var(--color-primary)", border: "1px solid var(--color-primary-active)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">C</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Prefijo
             <br />
             topografía
@@ -42,9 +25,7 @@ export function CodeBox() {
           style={{ background: "var(--color-primary)", border: "1px solid var(--color-primary-active)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">XX</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Localización
             <br />
             (2 dígitos)
@@ -60,9 +41,7 @@ export function CodeBox() {
           style={{ background: "var(--color-primary)", border: "1px solid var(--color-primary-active)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">X</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Sublocalización
             <br />
             (decimal)
@@ -70,10 +49,7 @@ export function CodeBox() {
         </div>
 
         {/* Plus separator */}
-        <span
-          className="flex items-center text-white/20 text-[1.2rem] px-2 self-center"
-          style={{ margin: "0 10px" }}
-        >
+        <span className="mx-[10px] self-center px-2 text-[1.2rem] text-white/20">
           +
         </span>
 
@@ -83,9 +59,7 @@ export function CodeBox() {
           style={{ background: "var(--color-secondary)", border: "1px solid var(--color-secondary)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">XXXX</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Tipo histológico
             <br />
             (4 dígitos)
@@ -101,9 +75,7 @@ export function CodeBox() {
           style={{ background: "var(--color-error)", border: "1px solid var(--color-error-hover)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">X</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Comporta-
             <br />
             miento
@@ -116,9 +88,7 @@ export function CodeBox() {
           style={{ background: "var(--color-ink)", border: "1px solid var(--color-ink)" }}
         >
           <span className="text-[2rem] font-semibold leading-tight block">X</span>
-          <span
-            style={{ fontSize: "10px", letterSpacing: ".06em", opacity: 0.75, display: "block", lineHeight: 1.3 }}
-          >
+          <span className="code-cell-note">
             Grado /
             <br />
             Linaje
@@ -127,20 +97,8 @@ export function CodeBox() {
       </div>
 
       {/* Example */}
-      <div
-        className="mt-6 pt-6"
-        style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}
-      >
-        <p
-          style={{
-            fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-            fontSize: "11px",
-            color: "rgba(255,255,255,.4)",
-            letterSpacing: ".1em",
-            textTransform: "uppercase",
-            marginBottom: ".75rem",
-          }}
-        >
+      <div className="mt-6 border-t border-white/10 pt-6">
+        <p className="code-eyebrow mb-3">
           Ejemplo — Carcinoma escamoso pobremente diferenciado, lóbulo superior del pulmón
         </p>
         <div className="flex flex-wrap gap-4 items-center">
@@ -148,13 +106,7 @@ export function CodeBox() {
             <div className="text-[1.6rem] font-semibold" style={{ color: "var(--color-primary)" }}>
               C34.1
             </div>
-            <div
-              style={{
-                fontSize: "12px",
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-              }}
-            >
+            <div className="code-example-detail">
               Lóbulo superior del pulmón
             </div>
           </div>
@@ -164,13 +116,7 @@ export function CodeBox() {
               8070/<span style={{ color: "var(--color-error)" }}>3</span>
               <span style={{ color: "var(--color-primary-disabled)" }}>3</span>
             </div>
-            <div
-              style={{
-                fontSize: "12px",
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-              }}
-            >
+            <div className="code-example-detail">
               Carcinoide escamoso / maligno / pobre dif.
             </div>
           </div>

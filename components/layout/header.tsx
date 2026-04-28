@@ -1,67 +1,24 @@
 export function Header() {
   return (
-    <header className="bg-ink text-canvas relative overflow-hidden" style={{ padding: "4.5rem 0 3.5rem" }}>
+    <header className="relative overflow-hidden bg-ink py-[4.5rem] pb-[3.5rem] text-canvas">
       {/* Subtle rings (no shadows) */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          right: "-80px",
-          top: "-120px",
-          width: "520px",
-          height: "520px",
-          borderRadius: "50%",
-          border: "80px solid rgba(244,244,244,.06)",
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          left: "35%",
-          bottom: "-160px",
-          width: "420px",
-          height: "420px",
-          borderRadius: "50%",
-          border: "70px solid rgba(244,244,244,.04)",
-        }}
-      />
+      <div className="pointer-events-none absolute -right-20 -top-[120px] h-[520px] w-[520px] rounded-full border-[80px] border-white/[0.06]" />
+      <div className="pointer-events-none absolute bottom-[-160px] left-[35%] h-[420px] w-[420px] rounded-full border-[70px] border-white/[0.04]" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <p className="font-code text-white/70" style={{ fontSize: "11px", letterSpacing: ".14em", textTransform: "uppercase", marginBottom: ".6rem" }}>
+      <div className="relative z-10 container mx-auto px-4">
+        <p className="eyebrow mb-[.6rem] text-white/70">
           OMS · IARC · Min. Sanidad España 2021
         </p>
 
-        <h1
-          className="font-heading"
-          style={{
-            fontSize: "clamp(2.4rem, 5.2vw, 4.2rem)",
-            lineHeight: 1.02,
-            letterSpacing: "-0.04em",
-            marginBottom: ".8rem",
-          }}
-        >
-          CIE-<em style={{ fontStyle: "italic", color: "var(--color-primary)" }}>O</em>-3
+        <h1 className="mb-[.8rem] font-heading text-[clamp(2.4rem,5.2vw,4.2rem)] leading-[1.02] tracking-[-0.04em]">
+          CIE-<em className="text-lila italic">O</em>-3
         </h1>
 
-        <p
-          className="text-white/75 font-body"
-          style={{
-            fontSize: "16px",
-            lineHeight: 1.56,
-            letterSpacing: "0.016em",
-            maxWidth: "540px",
-          }}
-        >
+        <p className="max-w-[540px] font-body text-[16px] leading-[1.56] tracking-[0.016em] text-white/75">
           Clasificación Internacional de Enfermedades para Oncología — Tercera Edición, Primera Revisión. Sistema de codificación anatomopatológica.
         </p>
 
-        <span
-          className="font-code inline-block mt-6 bg-white/10 border border-white/20 text-white/80"
-          style={{
-            fontSize: "11px",
-            padding: "6px 14px",
-            borderRadius: "9999px",
-          }}
-        >
+        <span className="mt-6 inline-block rounded-full border border-white/20 bg-white/10 px-[14px] py-[6px] font-code text-[11px] text-white/80">
           CIE-O-3.1 · Versión normativa
         </span>
       </div>

@@ -16,7 +16,6 @@ export function CasosCards() {
         <h2
           className="font-heading mb-3 text-primary"
           style={{
-            fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
             fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
             lineHeight: 1.15,
           }}
@@ -46,7 +45,6 @@ export function CasosCards() {
               <h3
                 className="font-heading"
                 style={{
-                  fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
                   fontSize: "1.15rem",
                   lineHeight: 1.2,
                 }}
@@ -125,7 +123,6 @@ export function CasosCards() {
                 <h3
                   className="font-heading"
                   style={{
-                    fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
                     fontSize: "1.15rem",
                     lineHeight: 1.2,
                   }}
@@ -180,7 +177,6 @@ export function CasosCards() {
                 <h3
                   className="font-heading"
                   style={{
-                    fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
                     fontSize: "1.15rem",
                     lineHeight: 1.2,
                   }}
@@ -196,7 +192,7 @@ export function CasosCards() {
                 style={{ background: "var(--color-error-hover)", fontSize: "13px" }}
               >
                 <strong style={{ color: "var(--color-error)" }}>NIC III / CIN III → comportamiento /2 (in situ)</strong>
-                <p className="mt-1.5 text-sm" style={{ fontSize: "12px", marginTop: "6px", color: "#7B1A0F" }}>
+                <p className="mt-1.5 text-sm" style={{ fontSize: "12px", marginTop: "6px", color: "color-mix(in oklab, var(--color-error), black 30%)" }}>
                   Se considera equivalente al carcinoma in situ. El PDF indica que el comportamiento correcto es /2, <strong>no /3</strong>.
                 </p>
               </div>
@@ -239,7 +235,6 @@ export function CasosCards() {
               <h3
                 className="font-heading"
                 style={{
-                  fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
                   fontSize: "1.15rem",
                   lineHeight: 1.2,
                 }}

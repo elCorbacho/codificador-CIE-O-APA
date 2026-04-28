@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Sora } from "next/font/google";
+import { IBM_Plex_Mono, Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-
-const sora = Sora({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
 
 const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-code",
@@ -34,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body
-        className={`${sora.variable} ${ibmPlexMono.variable} ${inter.variable} min-h-screen flex flex-col antialiased bg-canvas text-ink`}
+        className={`${inter.variable} ${ibmPlexMono.variable} min-h-screen flex flex-col antialiased bg-canvas text-ink`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

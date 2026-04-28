@@ -20,30 +20,24 @@ export function AppTabs() {
     <Tabs.Root defaultValue="arquitectura" className="flex flex-col flex-1">
       {/* Tab Navigation Bar — sticky dentro del Tabs.Root */}
       <Tabs.List
-        className="bg-canvas border-b border-hairline sticky top-0 z-50 flex list-none m-0 p-0 overflow-x-auto"
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 100,
-          scrollbarWidth: "none",
-          WebkitOverflowScrolling: "touch",
-        }}
+        className="tabs-scroll sticky top-0 z-[100] m-0 flex list-none overflow-x-auto border-b border-hairline bg-canvas/80 backdrop-blur-md p-0"
       >
         <div className="container mx-auto px-4 flex">
           {TABS.map((tab) => (
             <Tabs.Trigger
               key={tab.value}
               value={tab.value}
-              className="
-                bg-transparent border-none text-muted
-                font-heading font-medium text-[15px]
-                px-[22px] py-[22px] cursor-pointer whitespace-nowrap
-                border-b-[2px] border-b-transparent
-                transition-[color,border-color] duration-200
-                hover:text-ink
-                data-[state=active]:text-ink data-[state=active]:border-b-ink
-              "
-              style={{ letterSpacing: "-0.01em" }}
+                className="
+                 bg-transparent border-none text-muted
+                 font-heading font-medium text-[14px]
+                 px-6 py-5 cursor-pointer whitespace-nowrap
+                 border-b-2 border-b-transparent
+                 tracking-tight
+                 transition-all duration-normal ease-premium
+                 hover:text-ink
+                 data-[state=active]:text-ink data-[state=active]:border-b-ink
+                 data-[state=active]:px-8
+               "
             >
               {tab.label}
             </Tabs.Trigger>

@@ -19,42 +19,37 @@ interface StepProps {
 function WizardStep({ number, title, children, isActive, isDone }: StepProps) {
   return (
     <div
-      className={`rounded-[20px] border p-7 mb-5 transition-colors ${
+      role="region"
+      aria-labelledby={`step-title-${number}`}
+      aria-current={isActive ? "step" : undefined}
+      className={`rounded-[20px] border p-6 md:p-8 mb-5 transition-all duration-normal ease-premium ${
         isDone 
-          ? "border-secondary bg-surface-soft" 
+          ? "border-secondary bg-surface-soft/50" 
         : isActive 
-            ? "border-ink" 
-            : "border-hairline bg-canvas"
+            ? "border-ink shadow-sm scale-[1.005]" 
+            : "border-hairline bg-canvas opacity-70"
       }`}
     >
-      <div className="flex items-center mb-4">
+      <div className="flex items-center mb-6">
         <span
-          className={`w-7 h-7 rounded-full flex items-center justify-center font-code font-semibold text-sm mr-3 ${
+          className={`w-8 h-8 rounded-full flex items-center justify-center font-code font-bold text-xs mr-4 ${
             isDone 
-              ? "bg-secondary text-canvas" 
+              ? "bg-secondary text-ink" 
             : isActive 
                 ? "bg-primary text-canvas" 
                 : "bg-surface-soft text-muted"
           }`}
-            style={{
-              width: "28px",
-              height: "28px",
-              borderRadius: "50%",
-              fontSize: "13px",
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginRight: ".6rem",
-              flexShrink: 0,
-            }}
         >
           {number}
         </span>
-        <span className="font-heading font-medium text-[14px]" style={{ letterSpacing: "-0.01em" }}>
+        <h3 id={`step-title-${number}`} className="font-heading font-semibold text-[15px] tracking-tight">
           {title}
-        </span>
+        </h3>
+        {isDone && <span className="ml-auto text-[10px] font-bold uppercase tracking-widest text-secondary">Completado</span>}
       </div>
-      {children}
+      <div className={!isActive && !isDone ? "pointer-events-none" : ""}>
+        {children}
+      </div>
     </div>
   );
 }

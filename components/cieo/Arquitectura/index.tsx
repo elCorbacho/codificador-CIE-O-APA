@@ -3,48 +3,35 @@ import { InfoCards } from "./info-cards";
 
 export function ArquitecturaSection() {
   return (
-    <div className="py-10">
+    <div className="py-20 lg:py-32">
       <div className="container mx-auto px-4">
-        <p
-          className="font-code uppercase text-muted"
-          style={{
-            fontSize: "10.5px",
-            letterSpacing: ".14em",
-            marginBottom: ".4rem",
-          }}
-        >
-          Estructura fundamental
-        </p>
+        <div className="mb-16 lg:mb-24 max-w-[720px]">
+          <p className="eyebrow mb-2 text-muted">
+            Estructura fundamental
+          </p>
 
-        <h2
-          className="font-heading mb-3 text-ink"
-          style={{
-            fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-            lineHeight: 1.15,
-          }}
-        >
-          Código de 10 caracteres
-        </h2>
+          <h2 className="section-title mb-6 font-heading text-[clamp(2rem,4vw,3.2rem)] leading-[1.1] tracking-[-0.03em] text-ink">
+            Código de 10 caracteres
+          </h2>
 
-        <p
-          className="text-muted"
-          style={{
-            fontSize: "14.5px",
-            maxWidth: "600px",
-            marginBottom: "2rem",
-          }}
-        >
-          Cada diagnóstico oncológico genera exactamente dos códigos simultáneos: un código de
-          topografía y un código de morfología. Juntos suman 10 caracteres.
-        </p>
+          <p className="section-description text-body text-[18px] leading-relaxed text-muted/90">
+            Cada diagnóstico oncológico genera exactamente dos códigos simultáneos: un código de
+            topografía y un código de morfología. Juntos suman 10 caracteres que definen con precisión clínica el hallazgo.
+          </p>
+        </div>
 
-        <div className="flex flex-col gap-5">
-          <div>
+        <div className="space-y-20 lg:space-y-32">
+          <section>
             <CodeBox />
-          </div>
-          <div>
+          </section>
+          
+          <section>
+            <div className="mb-10">
+              <h3 className="font-heading text-2xl tracking-tight">Desglose de ejes</h3>
+              <p className="text-muted text-sm mt-1">Los componentes que forman la anatomía del código.</p>
+            </div>
             <InfoCards />
-          </div>
+          </section>
         </div>
       </div>
     </div>

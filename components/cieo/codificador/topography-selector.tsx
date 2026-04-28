@@ -1,9 +1,8 @@
 "use client";
 
-import * as Select from "@radix-ui/react-select";
 import { useState } from "react";
-import { ChevronDown, Check } from "lucide-react";
 import { useWizardStore } from "@/store/use-wizard-store";
+import { CieoSelect } from "@/components/ui/cieo-select";
 
 const SISTEMAS: Record<string, { alerta?: string; topos: Array<{ c: string; d: string }> }> = {
   "Cavidad oral y faringe": {
@@ -175,124 +174,39 @@ export function TopographySelector() {
     <div>
       {/* Sistema selector */}
       <div className="mb-3">
-        <Select.Root value={sistema} onValueChange={handleSistemaChange} disabled={isDisabled}>
-          <Select.Trigger
-            className="w-full flex items-center justify-between px-4 py-3 rounded-lg border text-sm outline-none transition-colors"
-            style={{
-              border: "1.5px solid var(--color-hairline)",
-              background: "var(--color-surface-soft)",
-              fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-              fontSize: "14px",
-              cursor: isDisabled ? "not-allowed" : "pointer",
-              opacity: isDisabled ? 0.45 : 1,
-              appearance: "none",
-              WebkitAppearance: "none",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right 14px center",
-            }}
-          >
-            <Select.Value placeholder="-- Sistema orgánico --" />
-            <Select.Icon>
-              <ChevronDown className="w-4 h-4" />
-            </Select.Icon>
-          </Select.Trigger>
-
-          <Select.Portal>
-            <Select.Content
-              className="bg-canvas border border-hairline rounded-lg shadow-lg overflow-hidden z-50"
-              position="popper"
-              style={{ width: "var(--radix-select-trigger-width)", maxHeight: "300px" }}
-            >
-              <Select.Viewport className="p-1">
-                {sistemaKeys.map((key) => (
-                  <Select.Item
-                    key={key}
-                    value={key}
-                    className="flex items-center px-3 py-2.5 rounded-md text-sm cursor-pointer hover:bg-azul-l data-[highlighted]:bg-azul-l outline-none"
-                    style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
-                  >
-                    <Select.ItemText>{key}</Select.ItemText>
-                    <Select.ItemIndicator className="ml-auto">
-                      <Check className="w-4 h-4 text-azul" />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                ))}
-              </Select.Viewport>
-            </Select.Content>
-          </Select.Portal>
-        </Select.Root>
+        <CieoSelect
+          value={sistema}
+          onValueChange={handleSistemaChange}
+          disabled={isDisabled}
+          placeholder="-- Sistema orgánico --"
+          options={sistemaKeys.map((key) => ({ value: key, label: key }))}
+          ariaLabel="Seleccionar sistema orgánico"
+        />
       </div>
 
       {/* Site selector */}
       <div className="mb-3">
-        <Select.Root onValueChange={handleTopoChange} disabled={isDisabled || !sistema}>
-          <Select.Trigger
-            className="w-full flex items-center justify-between px-4 py-3 rounded-lg border text-sm outline-none transition-colors"
-            style={{
-              border: "1.5px solid var(--color-hairline)",
-              background: "var(--color-surface-soft)",
-              fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-              fontSize: "14px",
-              cursor: isDisabled || !sistema ? "not-allowed" : "pointer",
-              opacity: isDisabled || !sistema ? 0.45 : 1,
-              appearance: "none",
-              WebkitAppearance: "none",
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right 14px center",
-            }}
-          >
-            <Select.Value placeholder="-- Sitio anatómico --" />
-            <Select.Icon>
-              <ChevronDown className="w-4 h-4" />
-            </Select.Icon>
-          </Select.Trigger>
-
-          <Select.Portal>
-            <Select.Content
-              className="bg-canvas border border-hairline rounded-lg shadow-lg overflow-hidden z-50"
-              position="popper"
-              style={{ width: "var(--radix-select-trigger-width)", maxHeight: "300px" }}
-            >
-              <Select.Viewport className="p-1">
-                {currentTopos.map((t) => (
-                  <Select.Item
-                    key={t.c}
-                    value={`${t.c}|${t.d}`}
-                    className="flex items-center px-3 py-2.5 rounded-md text-sm cursor-pointer hover:bg-azul-l data-[highlighted]:bg-azul-l outline-none"
-                    style={{ fontFamily: "var(--font-body, 'DM Sans', sans-serif)" }}
-                  >
-                    <Select.ItemText>
-                      {t.c} — {t.d}
-                    </Select.ItemText>
-                    <Select.ItemIndicator className="ml-auto">
-                      <Check className="w-4 h-4 text-azul" />
-                    </Select.ItemIndicator>
-                  </Select.Item>
-                ))}
-              </Select.Viewport>
-            </Select.Content>
-          </Select.Portal>
-        </Select.Root>
+        <CieoSelect
+          key={sistema}
+          onValueChange={handleTopoChange}
+          disabled={isDisabled || !sistema}
+          placeholder="-- Sitio anatómico --"
+          options={currentTopos.map((t) => ({
+            value: `${t.c}|${t.d}`,
+            label: `${t.c} — ${t.d}`,
+          }))}
+          ariaLabel="Seleccionar sitio anatómico (topografía)"
+        />
       </div>
 
       {/* Alert box */}
       {alerta && (
-        <div
-          className="rounded-lg p-3 mb-3 text-sm"
-          style={{
-            background: "#FFF4DC",
-            border: "1px solid #F4C96A",
-            color: "#7B4F10",
-            display: "block",
-          }}
-        >
+        <div className="alert-warn mb-3 rounded-lg p-3 text-sm">
           {alerta}
         </div>
       )}
 
-      <p className="text-xs" style={{ color: "var(--color-muted)", fontSize: "12px", lineHeight: 1.5 }}>
+      <p className="text-xs leading-[1.5] text-muted">
         Regla A: preferir sitio específico sobre SAI. Regla C: usar .8 si el tumor rebasa límites.
       </p>
     </div>

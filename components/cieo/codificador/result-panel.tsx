@@ -31,176 +31,110 @@ export function ResultPanel() {
     "9": "No det.",
   };
 
+  const isComplete = !!topo && !!hist && !!comp && !!grado;
+
   return (
-    <div
-      className="rounded-[14px] p-7 text-white sticky"
-      style={{
-        background: "var(--color-ink)",
-        fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-        top: "72px",
-      }}
-    >
-      <p
-        style={{
-          fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-          fontSize: "10px",
-          letterSpacing: ".14em",
-          textTransform: "uppercase",
-          color: "rgba(255,255,255,.4)",
-          marginBottom: "1.25rem",
-        }}
-      >
+    <div className="result-panel-root sticky rounded-[14px] p-7 text-white transition-shadow duration-normal ease-premium">
+      <p className="eyebrow mb-5 text-white/40">
         Código CIE-O-3 generado
       </p>
 
       {/* Code display */}
-      <div
-        className="text-[2.2rem] font-semibold tracking-wide min-h-[2.8rem]"
-        style={{ letterSpacing: ".04em", transition: "all .3s" }}
+      <div 
+        className={`result-panel-code min-h-[2.8rem] text-[2.2rem] font-semibold tracking-wide transition-all duration-normal ease-premium ${
+          isComplete ? "scale-[1.02] drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]" : ""
+        }`}
       >
         {topo ? (
-          <span style={{ color: "#7EC8E3" }}>{topo}</span>
+          <span style={{ color: "var(--color-topo-accent)" }}>{topo}</span>
         ) : (
-          <span style={{ color: "rgba(255,255,255,.15)" }}>__.__ </span>
+          <span className="text-white/15">__.__ </span>
         )}
-        <span style={{ color: "rgba(255,255,255,.25)", margin: "0 8px" }}> + </span>
+        <span className="mx-2 text-white/25"> + </span>
         {hist ? (
-          <span style={{ color: "#7EDBA8" }}>{hist}</span>
+          <span style={{ color: "var(--color-hist-accent)" }}>{hist}</span>
         ) : (
-          <span style={{ color: "rgba(255,255,255,.15)" }}>____</span>
+          <span className="text-white/15">____</span>
         )}
         {comp ? (
-          <span style={{ color: "#F4A573" }}>/{comp}</span>
+          <span style={{ color: "var(--color-comp-accent)" }}>/{comp}</span>
         ) : (
-          <span style={{ color: "rgba(255,255,255,.15)" }}>/_</span>
+          <span className="text-white/15">/_</span>
         )}
         {grado ? (
-          <span style={{ color: "#F4D173" }}>{grado}</span>
+          <span style={{ color: "var(--color-grad-accent)" }}>{grado}</span>
         ) : (
-          <span style={{ color: "rgba(255,255,255,.15)" }}>_</span>
+          <span className="text-white/15">_</span>
         )}
       </div>
 
       {/* Description */}
-      <p
-        style={{
-          fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-          fontSize: "13px",
-          color: "rgba(255,255,255,.55)",
-          marginTop: ".75rem",
-          minHeight: "2.5rem",
-          lineHeight: 1.5,
-        }}
-      >
+      <p className="result-panel-description mt-3">
         {completeDesc || "Complete los campos para generar el código."}
       </p>
 
-      <hr
-        style={{
-          border: "none",
-          borderTop: "1px solid rgba(255,255,255,.08)",
-          margin: "1.25rem 0",
-        }}
-      />
+      <hr className="result-panel-divider my-5" />
 
       {/* Parts breakdown */}
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-3 text-sm">
-          <span className="w-[100px] flex-shrink-0" style={{ color: "rgba(255,255,255,.35)" }}>
+          <span className="result-panel-label w-[100px] shrink-0">
             Topografía
           </span>
-          <span className="font-semibold" style={{ color: "#7EC8E3" }}>
+          <span className="font-semibold" style={{ color: "var(--color-topo-accent)" }}>
             {topo || "—"}
           </span>
           {topoDesc && (
-            <span
-              style={{
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-                fontSize: "12px",
-              }}
-            >
+            <span className="result-panel-detail">
               {topoDesc}
             </span>
           )}
         </div>
 
         <div className="flex items-center gap-3 text-sm">
-          <span className="w-[100px] flex-shrink-0" style={{ color: "rgba(255,255,255,.35)" }}>
+          <span className="result-panel-label w-[100px] shrink-0">
             Histología
           </span>
-          <span className="font-semibold" style={{ color: "#7EDBA8" }}>
+          <span className="font-semibold" style={{ color: "var(--color-hist-accent)" }}>
             {hist || "—"}
           </span>
           {histDesc && (
-            <span
-              style={{
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-                fontSize: "12px",
-              }}
-            >
+            <span className="result-panel-detail">
               {histDesc.length > 40 ? `${histDesc.substring(0, 40)}…` : histDesc}
             </span>
           )}
         </div>
 
         <div className="flex items-center gap-3 text-sm">
-          <span className="w-[100px] flex-shrink-0" style={{ color: "rgba(255,255,255,.35)" }}>
+          <span className="result-panel-label w-[100px] shrink-0">
             Comportamiento
           </span>
-          <span className="font-semibold" style={{ color: "#F4A573" }}>
+          <span className="font-semibold" style={{ color: "var(--color-comp-accent)" }}>
             {comp ? `/${comp}` : "—"}
           </span>
           {comp && (
-            <span
-              style={{
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-                fontSize: "12px",
-              }}
-            >
+            <span className="result-panel-detail">
               {compNames[comp] || ""}
             </span>
           )}
-          <span
-            className="ml-auto text-xs px-2 py-0.5 rounded"
-            style={{
-              fontSize: "10px",
-              background: "rgba(255,255,255,.08)",
-              color: "rgba(255,255,255,.5)",
-            }}
-          >
+          <span className="result-panel-tag ml-auto rounded px-2 py-0.5 text-xs">
             Regla F
           </span>
         </div>
 
         <div className="flex items-center gap-3 text-sm">
-          <span className="w-[100px] flex-shrink-0" style={{ color: "rgba(255,255,255,.35)" }}>
+          <span className="result-panel-label w-[100px] shrink-0">
             {tipoGrado === "linaje" ? "Linaje" : "Grado"}
           </span>
-          <span className="font-semibold" style={{ color: "#F4D173" }}>
+          <span className="font-semibold" style={{ color: "var(--color-grad-accent)" }}>
             {grado || "—"}
           </span>
           {grado && (
-            <span
-              style={{
-                color: "rgba(255,255,255,.5)",
-                fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-                fontSize: "12px",
-              }}
-            >
+            <span className="result-panel-detail">
               {gNames[grado] || ""}
             </span>
           )}
-          <span
-            className="ml-auto text-xs px-2 py-0.5 rounded"
-            style={{
-              fontSize: "10px",
-              background: "rgba(255,255,255,.08)",
-              color: "rgba(255,255,255,.5)",
-            }}
-          >
+          <span className="result-panel-tag ml-auto rounded px-2 py-0.5 text-xs">
             Regla G
           </span>
         </div>
@@ -208,17 +142,9 @@ export function ResultPanel() {
 
       <button
         onClick={resetAll}
-        className="mt-5 w-full rounded-[8px] px-4 py-[9px] text-sm border transition-all hover:bg-white/12 hover:text-white"
-        style={{
-          background: "rgba(255,255,255,.07)",
-          border: "1px solid rgba(255,255,255,.12)",
-          color: "rgba(255,255,255,.65)",
-          fontFamily: "var(--font-body, 'DM Sans', sans-serif)",
-          fontSize: "13px",
-          cursor: "pointer",
-        }}
+        className="result-panel-reset group mt-5 w-full cursor-pointer rounded-[8px] border px-4 py-[9px] text-sm transition-all duration-fast ease-premium hover:bg-white/10 hover:border-white/30 hover:scale-[1.01] active:scale-[0.98]"
       >
-        <RotateCcw className="inline w-4 h-4 mr-1 align-middle" />
+        <RotateCcw className="inline w-4 h-4 mr-2 align-middle transition-transform duration-normal ease-premium group-hover:rotate-[-45deg]" />
         Reiniciar codificación
       </button>
     </div>

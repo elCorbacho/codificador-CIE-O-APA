@@ -8,41 +8,25 @@ interface RuleProps {
 
 function RuleItem({ letter, badgeColor, title, description, example }: RuleProps) {
   return (
-    <div className="flex gap-4 py-4 border-b border-hairline" style={{ borderBottom: "1px solid var(--color-hairline)" }}>
+    <div className="group relative flex gap-6 rounded-2xl border border-transparent p-4 transition-all duration-normal ease-premium hover:border-hairline hover:bg-surface-soft/40 hover:translate-x-1">
       <div
-        className="w-9 h-9 rounded-lg flex items-center justify-center font-mono font-semibold text-base flex-shrink-0"
-        style={{
-          width: "34px",
-          height: "34px",
-          borderRadius: "8px",
-          background: badgeColor,
-          color: "var(--color-canvas)",
-          fontSize: "15px",
-          fontWeight: 600,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-code text-[16px] font-bold text-canvas transition-all duration-normal ease-premium group-hover:scale-110 group-hover:shadow-sm"
+        style={{ background: badgeColor }}
       >
         {letter}
       </div>
       <div className="flex-1">
-        <div className="font-medium text-sm mb-0.5">
+        <h4 className="font-heading font-semibold text-[15px] mb-1 tracking-tight text-ink">
           {title}
-        </div>
-        <div className="text-sm mb-1.5 text-muted leading-1.5">
+        </h4>
+        <p className="text-[13.5px] mb-3 text-muted leading-relaxed">
           {description}
-        </div>
+        </p>
         {example && (
-          <span
-            className="font-mono inline-block px-2.5 py-1 rounded text-xs bg-surface-soft text-primary"
-            style={{
-              fontSize: "11.5px",
-            }}
-          >
-            {example}
-          </span>
+          <div className="inline-flex items-center gap-2 rounded-lg bg-surface-soft px-3 py-1.5 font-code text-[11px] text-primary border border-hairline/50">
+            <span className="opacity-40 font-bold uppercase tracking-tighter">Ejemplo:</span>
+            <span className="font-medium">{example}</span>
+          </div>
         )}
       </div>
     </div>
@@ -77,19 +61,19 @@ export function ReglasGrid() {
     },
     {
       letter: "D",
-      badgeColor: "var(--color-secondary)",
-      title: "Linfomas — código topográfico especial",
+      badgeColor: "var(--color-topo-accent)",
+      title: "Linfomas",
       description:
         "Ganglionares → C77._. Extraganglionares → sitio de origen. Múltiples regiones → C77.8. Sin localización → C80.9.",
-      example: "Linfoma MALT gástrico → C16.9  ·  Linfoma ganglionar → C77.9",
+      example: "Linfoma MALT gástrico → C16.9",
     },
     {
       letter: "E",
-      badgeColor: "var(--color-secondary)",
-      title: "Leucemias — siempre C42.1",
+      badgeColor: "var(--color-topo-accent)",
+      title: "Leucemias",
       description:
         "TODAS las leucemias → C42.1 (médula ósea). Excepción: sarcoma mieloide (9930/3) → localización del depósito.",
-      example: "LMA → C42.1  ·  Sarcoma mieloide en ganglio → C77.9",
+      example: "LMA → C42.1",
     },
   ];
 
@@ -97,10 +81,10 @@ export function ReglasGrid() {
     {
       letter: "F",
       badgeColor: "var(--color-error)",
-      title: "Sistema matricial de comportamiento",
+      title: "Sistema matricial",
       description:
-        "Usar comportamiento correcto aunque el término exacto no aparezca en CIE-O. La matriz permite cualquier combinación. El patólogo tiene la última palabra.",
-      example: "Cordoma benigno → 9370/0 (aunque no esté listado)",
+        "Usar comportamiento correcto aunque el término exacto no aparezca en CIE-O. La matriz permite cualquier combinación.",
+      example: "Cordoma benigno → 9370/0",
     },
     {
       letter: "G",
@@ -115,101 +99,75 @@ export function ReglasGrid() {
       badgeColor: "var(--color-error)",
       title: "Morfología asociada a localización",
       description:
-        "Usar código topo sugerido entre paréntesis si el diagnóstico no indica localización. Si hay localización indicada, usarla aunque difiera del código sugerido.",
-      example: "Basocelular sin loc. → C44._  ·  Con loc. distinta → usar esa",
+        "Usar código topo sugerido si el diagnóstico no indica localización. Si hay localización indicada, usarla aunque difiera.",
+      example: "Basocelular sin loc. → C44._",
     },
     {
       letter: "J",
       badgeColor: "var(--color-error)",
-      title: "Diagnósticos morfológicos compuestos",
+      title: "Diagnósticos compuestos",
       description:
         "Si el término compuesto no aparece, invertir el orden de las raíces de las palabras.",
-      example: "Mixofibrosarcoma → buscar Fibromixosarcoma (8811/3)",
+      example: "Mixofibrosarcoma → Fibromixosarcoma (8811/3)",
     },
     {
       letter: "K",
       badgeColor: "var(--color-error)",
-      title: "Múltiples términos morfológicos",
+      title: "Múltiples términos",
       description:
-        "Si un tumor tiene dos adjetivos con códigos distintos y no hay código único, usar el numéricamente mayor (generalmente más específico).",
-      example: "Carcinoma escamoso de células transicionales → 8120/3",
+        "Si un tumor tiene dos adjetivos con códigos distintos, usar el numéricamente mayor (más específico).",
+      example: "Carcinoma escamoso transicional → 8120/3",
     },
   ];
 
   return (
-    <div className="py-10">
+    <div className="py-20 lg:py-32">
       <div className="container mx-auto px-4">
-        <p
-          className="font-mono uppercase text-muted mb-[0.4rem]"
-          style={{
-            fontSize: "10.5px",
-            letterSpacing: ".14em",
-          }}
-        >
-          Directrices oficiales — §4.1 Tabla 14 del PDF
-        </p>
+        <div className="mb-16 max-w-[720px]">
+          <p className="eyebrow mb-2 text-muted">
+            Directrices oficiales — §4.1 Tabla 14 del PDF
+          </p>
 
-        <h2
-          className="font-heading mb-3 text-primary"
-          style={{
-            fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-            lineHeight: 1.15,
-          }}
-        >
-          Reglas de codificación A–K
-        </h2>
+          <h2 className="section-title mb-6 font-heading font-semibold text-ink">
+            Reglas de codificación A–K
+          </h2>
 
-        <p
-          className="text-muted mb-8"
-          style={{
-            fontSize: "14.5px",
-            maxWidth: "600px",
-          }}
-        >
-          El PDF establece 10 reglas oficiales (no existe Regla I, intencionalmente). Cada regla aplica a situaciones específicas de codificación.
-        </p>
+          <p className="section-description text-body text-[18px] leading-relaxed text-muted/90">
+            El sistema normativo establece 10 reglas fundamentales para garantizar la interoperabilidad de los datos oncológicos a nivel global.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Topography rules */}
-          <div
-            className="rounded-[14px] border border-hairline p-7 bg-canvas"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2.5 h-2.5 rounded-full bg-primary" />
-              <h3
-                className="font-heading"
-                style={{
-                  fontSize: "1.15rem",
-                  lineHeight: 1.2,
-                }}
-              >
-                Reglas de topografía
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Topography rules - Span 5 */}
+          <div className="lg:col-span-5 space-y-2">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-hairline" />
+              <h3 className="font-heading text-xl tracking-tight text-primary whitespace-nowrap">
+                Eje Topográfico
               </h3>
+              <div className="h-px flex-1 bg-hairline" />
             </div>
-            {topoRules.map((rule) => (
-              <RuleItem key={rule.letter} {...rule} />
-            ))}
+            <div className="grid gap-2">
+              {topoRules.map((rule) => (
+                <RuleItem key={rule.letter} {...rule} />
+              ))}
+            </div>
           </div>
 
-          {/* Morphology rules */}
-          <div
-            className="rounded-[14px] border border-hairline p-7 bg-canvas"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2.5 h-2.5 rounded-full bg-error" />
-              <h3
-                className="font-heading"
-                style={{
-                  fontSize: "1.15rem",
-                  lineHeight: 1.2,
-                }}
-              >
-                Reglas de morfología
+          {/* Morphology rules - Span 7 */}
+          <div className="lg:col-span-7 space-y-2">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="h-px flex-1 bg-hairline" />
+              <h3 className="font-heading text-xl tracking-tight text-error whitespace-nowrap">
+                Eje Morfológico
               </h3>
+              <div className="h-px flex-1 bg-hairline" />
             </div>
-            {morfoRules.map((rule) => (
-              <RuleItem key={rule.letter} {...rule} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-2">
+              {morfoRules.map((rule) => (
+                <RuleItem key={rule.letter} {...rule} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

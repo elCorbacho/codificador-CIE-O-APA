@@ -2,133 +2,83 @@ export function ErdDiagram() {
   return (
     <div className="py-10">
       <div className="container mx-auto px-4">
-        <p
-          className="font-code uppercase text-muted"
-          style={{
-            fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)",
-            fontSize: "10.5px",
-            letterSpacing: ".14em",
-            marginBottom: ".4rem",
-          }}
-        >
+        <p className="erd-eyebrow font-code uppercase text-muted">
           Modelo de datos
         </p>
 
-        <h2
-          className="font-heading mb-3 text-primary"
-          style={{
-            fontFamily: "var(--font-heading, 'DM Serif Display', serif)",
-            fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-            lineHeight: 1.15,
-          }}
-        >
+        <h2 className="section-title mb-3 font-heading text-primary">
           Entidad–Relación
         </h2>
 
-        <p
-          className="text-muted"
-          style={{
-            fontSize: "14.5px",
-            maxWidth: "600px",
-            marginBottom: "2rem",
-          }}
-        >
+        <p className="section-description mb-8 text-muted">
           Estructura normalizada del sistema CIE-O-3. Las tablas catálogo son de solo lectura; las tablas pivote implementan la lógica de relaciones.
         </p>
 
         <div className="overflow-x-auto">
-          <div
-            className="grid gap-5 min-w-[900px]"
-            style={{
-              gridTemplateColumns: "repeat(4, minmax(200px, 1fr))",
-              position: "relative",
-              padding: "20px",
-            }}
-          >
+          <div className="erd-wrap grid min-w-[900px] gap-5">
             {/* Column 1: Grupos */}
             <div className="flex flex-col gap-5">
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm border border-hairline"
-                style={{
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card inline-block overflow-hidden rounded-[10px] border border-hairline text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white bg-secondary"
                 >
                   GRUPO_ORGANICO
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                  <span className="erd-badge erd-badge-pk">
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_grupo
                   </span>
-                  <span className="text-xs text-muted" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     nombre
                   </span>
-                  <span className="text-xs text-muted" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     varchar
                   </span>
                 </div>
               </div>
 
-              <div
-                className="text-center py-1 text-xs text-muted"
-                style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}
-              >
+              <div className="erd-rel py-1 text-center">
                 1 ──── N ↓
               </div>
 
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm border border-hairline"
-                style={{
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card inline-block overflow-hidden rounded-[10px] border border-hairline text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white bg-lila"
                 >
                   GRUPO_HISTOLOGICO
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                  <span className="erd-badge erd-badge-pk">
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_grupo
                   </span>
-                  <span className="text-xs text-muted" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     nombre
                   </span>
-                  <span className="text-xs text-muted" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     varchar
                   </span>
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     tipo_grado
                   </span>
-                  <span className="text-xs text-muted" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     enum
                   </span>
                 </div>
@@ -137,45 +87,32 @@ export function ErdDiagram() {
 
             {/* Column 2: Catálogos principales */}
             <div className="flex flex-col gap-5">
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
                   style={{ background: "var(--color-primary)" }}
                 >
                   TOPOGRAFIA
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_topografia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(6)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_grupo_organico
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
@@ -197,52 +134,36 @@ export function ErdDiagram() {
                 </div>
               </div>
 
-              <div
-                className="text-center py-1"
-                style={{ fontSize: "10px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}
-              >
+              <div className="erd-rel py-1 text-center">
                 1 ──── N ↓
               </div>
 
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
                   style={{ background: "var(--color-lila)" }}
                 >
                   MORFOLOGIA
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_morfologia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(4)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_grupo_histologico
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
@@ -267,31 +188,21 @@ export function ErdDiagram() {
 
             {/* Column 3: Dígitos y restricciones */}
             <div className="flex flex-col gap-5">
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
                   style={{ background: "var(--color-error)" }}
                 >
                   COMPORTAMIENTO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_comportamiento
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
@@ -313,38 +224,25 @@ export function ErdDiagram() {
                 </div>
               </div>
 
-              <div
-                className="text-center py-1"
-                style={{ fontSize: "10px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}
-              >
+              <div className="erd-rel py-1 text-center">
                 M ─── N (pivot)
               </div>
 
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
                   style={{ background: "var(--color-ambar)" }}
                 >
                   GRADO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_grado
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
@@ -366,66 +264,47 @@ export function ErdDiagram() {
                 </div>
               </div>
 
-              <div
-                className="text-center py-1"
-                style={{ fontSize: "10px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}
-              >
+              <div className="erd-rel py-1 text-center">
                 M ─── N (pivot)
               </div>
 
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
                   style={{ background: "var(--color-error)" }}
                 >
                   RESTRICCION_TOPO_MORFO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_restriccion
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_topografia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(6)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_morfologia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(4)
                   </span>
                 </div>
@@ -450,45 +329,32 @@ export function ErdDiagram() {
 
             {/* Column 4: Tablas pivote + operacional */}
             <div className="flex flex-col gap-5">
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
-                  style={{ background: "#3C3489" }}
+                  style={{ background: "var(--color-accent)" }}
                 >
                   MORFO_COMPORTAMIENTO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_morfologia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(4)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_comportamiento
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
@@ -510,45 +376,32 @@ export function ErdDiagram() {
                 </div>
               </div>
 
-              <div
-                className="inline-block rounded-[10px] overflow-hidden text-sm"
-                style={{
-                  border: "1.5px solid var(--color-hairline)",
-                  boxShadow: "0 2px 8px rgba(0,0,0,.05)",
-                  minWidth: "200px",
-                }}
-              >
+              <div className="erd-card erd-card-strong inline-block overflow-hidden rounded-[10px] text-sm">
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
-                  style={{ background: "#712B13" }}
+                  style={{ background: "var(--color-ambar)" }}
                 >
                   MORFO_GRADO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_morfologia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(4)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_grado
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
@@ -572,77 +425,62 @@ export function ErdDiagram() {
               >
                 <div
                   className="px-4 py-2.5 font-semibold text-white"
-                  style={{ background: "#2E4057" }}
+                  style={{ background: "var(--color-body)" }}
                 >
                   CODIGO_GENERADO
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#FFF3CD", color: "#856404", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-pk-bg)", color: "var(--color-pk-text)" }}>
                     PK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     id_codigo
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     int
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_topografia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(6)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_morfologia
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(4)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_comportamiento
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-gris">
-                  <span
-                    className="px-1.5 py-0.5 rounded text-xs font-semibold"
-                    style={{ background: "#D1ECF1", color: "#0C5460", fontSize: "10px" }}
-                  >
+                <div className="flex items-center gap-2 px-4 py-1.5 border-t border-hairline bg-canvas hover:bg-surface-soft">
+                  <span className="erd-badge" style={{ background: "var(--color-fk-bg)", color: "var(--color-fk-text)" }}>
                     FK
                   </span>
-                  <span className="flex-1" style={{ fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)", fontSize: "11.5px" }}>
+                  <span className="erd-field flex-1">
                     cod_grado
                   </span>
-                  <span style={{ fontSize: "11px", color: "var(--color-muted)", fontFamily: "var(--font-code, 'IBM Plex Mono', monospace)" }}>
+                  <span className="erd-type">
                     char(1)
                   </span>
                 </div>
@@ -675,10 +513,7 @@ export function ErdDiagram() {
           </div>
 
           {/* Legend */}
-          <div
-            className="mt-4 pt-4 flex flex-wrap gap-4 text-xs"
-            style={{ borderTop: "1px solid var(--color-hairline)", fontSize: "12px", color: "var(--color-muted)" }}
-          >
+          <div className="erd-legend mt-4 flex flex-wrap gap-4 pt-4 text-xs">
             <div>
               <strong style={{ color: "var(--color-primary)" }}>Regla D:</strong> Linfomas ganglionares → C77._
             </div>
